@@ -1,0 +1,34 @@
+users 表
+表格
+字段名	类型	描述
+id	VARCHAR(36)	用户ID (UUID)
+email	VARCHAR(255)	邮箱
+password_hash	VARCHAR(255)	密码哈希
+body_type	ENUM	身材类型
+height	FLOAT	身高(cm)
+weight	FLOAT	体重(kg)
+skin_tone	VARCHAR(20)	肤色
+budget_range	VARCHAR(50)	预算范围
+style_preferences	JSON	风格偏好
+created_at	TIMESTAMP	创建时间
+updated_at	TIMESTAMP	更新时间
+clothing_items 表
+表格
+字段名	类型	描述
+id	VARCHAR(36)	衣物ID
+user_id	VARCHAR(36)	用户ID
+category	VARCHAR(50)	分类(上衣/下装等)
+subcategory	VARCHAR(50)	子分类(T恤/衬衫等)
+color_primary	VARCHAR(20)	主色
+color_secondary	VARCHAR(20)	次色
+material	VARCHAR(50)	材质
+style	VARCHAR(50)	风格
+brand	VARCHAR(100)	品牌
+price	DECIMAL(10,2)	价格
+purchase_date	DATE	购买日期
+wear_count	INT	穿着次数
+last_worn	DATE	最后穿着日期
+image_url	VARCHAR(255)	图片URL
+attributes	JSON	其他属性
+created_at	TIMESTAMP	创建时间
+updated_at	TIMESTAMP	更新时间
