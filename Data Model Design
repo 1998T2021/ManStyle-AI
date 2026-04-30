@@ -1,0 +1,35 @@
+erDiagram
+    USER ||--o{ CLOTHING : owns
+    USER ||--o{ OUTFIT : creates
+    USER ||--o{ PREFERENCE : has
+    CLOTHING ||--o{ OUTFIT_ITEM : belongs_to
+    OUTFIT ||--o{ OUTFIT_ITEM : contains
+    OUTFIT ||--o{ WEATHER_CONDITION : suitable_for
+    CLOTHING {
+        string id PK
+        string user_id FK
+        string type
+        string color
+        string material
+        string style
+        float price
+        date purchase_date
+        int wear_count
+        bool is_favorite
+        timestamp created_at
+        timestamp updated_at
+    }
+    OUTFIT {
+        string id PK
+        string user_id FK
+        string name
+        string occasion
+        int score
+        bool is_favorite
+        timestamp created_at
+    }
+    OUTFIT_ITEM {
+        string outfit_id FK
+        string clothing_id FK
+        int position
+    }
