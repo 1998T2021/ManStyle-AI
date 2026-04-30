@@ -1,0 +1,35 @@
+def generate_outfit(user_profile, weather, occasion, budget):
+    # 1. 过滤符合条件的衣物
+    candidate_items = filter_items(
+        clothing_db,
+        user_profile.body_type,
+        weather.temperature,
+        occasion.formality,
+        budget
+    )
+    
+    # 2. 计算搭配兼容性
+    compatibility_scores = calculate_compatibility(
+        candidate_items,
+        style_rules,
+        color_theory,
+        seasonal_rules
+    )
+    
+    # 3. 生成候选搭配
+    candidate_outfits = generate_combinations(
+        candidate_items,
+        compatibility_scores,
+        max_combinations=50
+    )
+    
+    # 4. 评分和排序
+    scored_outfits = score_outfits(
+        candidate_outfits,
+        user_preferences,
+        occasion_requirements,
+        weather_adaptability
+    )
+    
+    # 5. 返回Top3搭配
+    return sorted(scored_outfits, key=lambda x: x.score, reverse=True)[:3]
